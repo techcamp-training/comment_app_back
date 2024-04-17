@@ -17,12 +17,12 @@ model Chat {
   id      Int      @id @default(autoincrement())
   title   String
   content String
-  comments Comment[] // chatとcommentの関連付け。Chatは複数のCommentを持てる
+  comments Comment[]
 }
 
 model Comment {
   id      Int    @id @default(autoincrement())
   content String
   chatId  Int    // chatテーブルへの外部キーカラム
-  chat    Chat   @relation(fields: [chatId], references: [id]) // CommentがChatに紐づくことを示す
+  chat    Chat   @relation(fields: [chatId], references: [id])
 }
